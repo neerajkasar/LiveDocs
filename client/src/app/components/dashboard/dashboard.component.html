@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="dashboard-header">
+    <h2>My Documents</h2>
+    <button class="btn" (click)="createDocument()">New Document</button>
+    <button class="btn btn-logout" (click)="logout()">Logout</button>
+  </div>
+  <div *ngIf="documents.length === 0" class="no-documents">
+    <p>You don't have any documents yet. Create one to get started!</p>
+  </div>
+  <ul class="document-list" *ngIf="documents.length > 0">
+    <li *ngFor="let doc of documents" (click)="openDocument(doc._id)">
+      <span>{{ doc.title }}</span>
+      <span class="timestamp">Last updated: {{ doc.updatedAt | date:'short' }}</span>
+    </li>
+  </ul>
+</div>

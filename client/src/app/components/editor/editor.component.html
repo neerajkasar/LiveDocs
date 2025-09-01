@@ -1,0 +1,7 @@
+<div class="editor-container">
+    <quill-editor 
+        [(ngModel)]="content"
+        (onContentChanged)="onContentChanged($event)"
+        [modules]="editorModules">
+    </quill-editor>
+</div>
