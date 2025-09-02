@@ -1,16 +1,18 @@
-<div class="container">
-  <div class="dashboard-header">
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>My Documents</h2>
-    <button class="btn" (click)="createDocument()">New Document</button>
-    <button class="btn btn-logout" (click)="logout()">Logout</button>
+    <div>
+      <button class="btn btn-primary me-2" (click)="createDocument()">New Document</button>
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
   </div>
-  <div *ngIf="documents.length === 0" class="no-documents">
+  <div *ngIf="documents.length === 0" class="text-center p-5 bg-light rounded border">
     <p>You don't have any documents yet. Create one to get started!</p>
   </div>
-  <ul class="document-list" *ngIf="documents.length > 0">
-    <li *ngFor="let doc of documents" (click)="openDocument(doc._id)">
+  <ul class="list-group" *ngIf="documents.length > 0">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let doc of documents" (click)="openDocument(doc._id)" style="cursor: pointer;">
       <span>{{ doc.title }}</span>
-      <span class="timestamp">Last updated: {{ doc.updatedAt | date:'short' }}</span>
+      <small class="text-muted">Last updated: {{ doc.updatedAt | date:'short' }}</small>
     </li>
   </ul>
 </div>

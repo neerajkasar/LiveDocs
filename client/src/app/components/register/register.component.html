@@ -1,18 +1,26 @@
-<div class="form-container">
-  <h2 class="text-center">Register</h2>
-  <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
-    <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" formControlName="email" required>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Register</h2>
+          <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" formControlName="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" class="form-control" formControlName="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+          </form>
+          <p class="text-center mt-3">
+            Already have an account? <a routerLink="/login">Login</a>
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="password" required>
-    </div>
-    <button type="submit" class="btn btn-block" [disabled]="registerForm.invalid">Register</button>
-  </form>
-  <p class="text-center mt-2">
-    Already have an account? <a routerLink="/login">Login</a>
-  </p>
+  </div>
 </div>

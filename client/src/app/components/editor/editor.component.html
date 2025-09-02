@@ -1,7 +1,13 @@
-<div class="editor-container">
-    <quill-editor 
-        [(ngModel)]="content"
-        (onContentChanged)="onContentChanged($event)"
-        [modules]="editorModules">
-    </quill-editor>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8">
+            <div class="bg-white p-4 shadow">
+                <quill-editor
+                    [(ngModel)]="content"
+                    (onContentChanged)="onContentChanged($event)"
+                    [modules]="editorModules">
+                </quill-editor>
+            </div>
+        </div>
+    </div>
 </div>
